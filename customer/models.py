@@ -1,7 +1,5 @@
 from __future__ import unicode_literals
 
-from django.db import models
-
 # Create your models here.
 
 from django.db import models
@@ -13,6 +11,9 @@ class User(models.Model):
     last_name =  models.CharField(max_length=200)
     email_address = models.EmailField()
     password = models.CharField(max_length=20)
+
+    def __str__(self):
+        return '{0} {1}'.format(self.first_name, self.last_name)
 #
 #
 # class Choice(models.Model):
