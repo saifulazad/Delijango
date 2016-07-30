@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}My amazing Sadi{% endblock %}
+
+{% block sidebar %}
+ <ul>
+            <li><a href="/">Azad</a></li>
+            <li><a href="/blog/">Mal</a></li>
+        </ul>
+
+{% endblock %}
+
+{% block content %}
+{% for entry in blog_entries %}
+    <h2>{{ entry.title }}</h2>
+    <p>{{ entry.body }}</p>
+{% endfor %}
+{% endblock %}
+
+
+    {% block see %}
+        <div>
+        <a>aaaaaaaaaaaaaaaaa</a>
+        </div>
+    {% endblock %}
