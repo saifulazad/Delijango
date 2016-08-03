@@ -3,9 +3,6 @@ from .models import User
 
 
 class SignupForm(forms.ModelForm):
-
-    password = forms.CharField(widget=forms.PasswordInput)
-
     class Meta:
         model = User
         fields = [
@@ -14,3 +11,6 @@ class SignupForm(forms.ModelForm):
             "email_address",
             "password",
         ]
+        widgets = {
+            'password': forms.PasswordInput(),
+        }
