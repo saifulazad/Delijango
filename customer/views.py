@@ -12,10 +12,9 @@ def index(request):
 def signup(request):
     if request.POST:
         form = SignupForm(request.POST)
+        
         if form.is_valid():
             form.save()
-            new_obj = form.save(commit=False)
-            new_obj.save()
             url = reverse('index')
             return HttpResponseRedirect(url)
 
