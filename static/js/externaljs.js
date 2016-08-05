@@ -27,7 +27,7 @@ $(document).ready(function() {
           $(".menu").hide();
           //$(".searchbar").css({"display","none"});
           $(".searchbar-container").show(1000);
-          
+
     });
 
 
@@ -42,7 +42,7 @@ $(document).ready(function() {
 
     $(".account-open").click(function(){
           $(".menu").hide();
-         // $(".account-container").show();
+         $(".account-container").show();
           
     });
 

@@ -29,3 +29,7 @@ def login(request):
     # latest_question_list = Question.objects.order_by('-pub_date')[:5]
     context = {'latest_question_list': 'Hello saddi '}
     return render(request, 'login.html', context)
+
+
+def single_product(request):
+    return render(request, 'single_product.html', context=None)
