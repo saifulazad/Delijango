@@ -31,5 +31,3 @@ def login(request):
     return render(request, 'login.html', context)
 
 
-def single_product(request):
-    return render(request, 'single_product.html', context=None)
