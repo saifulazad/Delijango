@@ -7,7 +7,7 @@
         <ul class="breadcrumb">
           <li><a href="/">Home</a></li>
           <li><a href="/collections">Collections</a></li>  <li><a href="/collections/featured-products">Featured Products</a></li>
-          <li>Long grain white rice</li>
+          <li>{{ product.productName }}</li>
         </ul>
       </div>
     </div>
@@ -79,12 +79,13 @@
           <div class="photos">
             <div class="container clearfix" style="height: auto; width: auto; position: relative; overflow: hidden; outline-width: 0px;">
               <a class="photo active" href="" data-zoom="" rel="gallery" data-image-id="346382162" style="display: inline;">
-                <img src="../static/assets/longgrainrice_medium.jpeg"  alt="Long grain white rice">
+                <img src="{{ product.image.url }}"  alt="{{ product.productName }}" id="my-image">
               </a>
               <!-- <img src="assets/products.jpeg" class="zoomImg" style="position: absolute; top: -114.519px; left: -16.3715px; opacity: 0; width: 1024px; height: 1024px; border: none; max-width: none;"> -->
             </div>
           </div>
         </div>
+
       </div>
 
       <div class="visible-xs col-sm-6 col-md-6 col-lg-6">
@@ -123,7 +124,7 @@
 
                 <ul class="tabs content">
                   <li class= 'active'>
-                    <p>Mighty rice is available in two varieties, taking flavour and quality from the volcanic soil, clean air and pure rainwater of Mauritius. It comes in 15oz and 500g re-sealable bags.<span class="slide txt_2i">There's long-grain white rice with its delicate flavour and tempting fragrance. Or long-grain brown rice, which has the same delicious grains but keeps its outer bran layer for a nutty flavour and more robust texture.</span></p>
+                    <p>{{ product.description }}</p>
                   </li>
                   <li>
                     <p>If you require more detailed product descriptions, you can add tabs to any RTE (rich text editor) area in the theme for:
@@ -157,73 +158,21 @@
       <div class="raw content">
 
         <div id="owl-demo2" class="owl-carousel">
-
-          <div class="item">
-            <div class="product-item " style="display: block;">
-              <div class="image-wrapper" style="opacity: 1;">
-                <a href="#"><img class="hov" src="../static/assets/jpeg-2_medium.jpeg" alt="Owl Image"></a>
-              </div>
-              <div class="">
-                <p class="title"><a href="#">Rococo Sea Salt Wafers</a></p>
-                <p class="vendor"><a href="" title="">The Deli Co</a></p>
-                <p class="price"><span class="money" data-currency-cad="$12.95" data-currency-usd="$9.84 USD" data-currency="USD">$9.84 USD</span></p>
-              </div>
-            </div>
-          </div>
-
-          <div class="item">
-            <div class="product-item " style="display: block;">
-              <div class="image-wrapper" style="opacity: 1;">
-                <a href="#"><img src="../static/assets/jpeg-2_medium.jpeg" alt="Owl Image"></a>
-              </div>
-              <div class="">
-                <p class="title"><a href="#">Rococo Sea Salt Wafers</a></p>
-                <p class="vendor"><a href="" title="">The Deli Co</a></p>
-                <p class="price"><span class="money" data-currency-cad="$12.95" data-currency-usd="$9.84 USD" data-currency="USD">$9.84 USD</span></p>
-              </div>
-            </div>
-          </div>
-
-          <div class="item">
-            <div class="product-item " style="display: block;">
-              <div class="image-wrapper" style="opacity: 1;">
-                <a href="#"><img src="../static/assets/jpeg-2_medium.jpeg" alt="Owl Image"></a>
-              </div>
-              <div class="">
-                <p class="title"><a href="#">Rococo Sea Salt Wafers</a></p>
-                <p class="vendor"><a href="" title="">The Deli Co</a></p>
-                <p class="price"><span class="money" data-currency-cad="$12.95" data-currency-usd="$9.84 USD" data-currency="USD">$9.84 USD</span></p>
-              </div>
-            </div>
-          </div>
-
-
-          <div class="item">
-            <div class="product-item " style="display: block;">
-              <div class="image-wrapper" style="opacity: 1;">
-                <a href="#"><img src="../static/assets/jpeg-2_medium.jpeg" alt="Owl Image"></a>
-              </div>
-              <div class="">
-                <p class="title"><a href="#">Rococo Sea Salt Wafers</a></p>
-                <p class="vendor"><a href="" title="">The Deli Co</a></p>
-                <p class="price"><span class="money" data-currency-cad="$12.95" data-currency-usd="$9.84 USD" data-currency="USD">$9.84 USD</span></p>
-              </div>
-            </div>
-          </div>
-
-
-          <div class="item">
-            <div class="product-item " style="display: block;">
-              <div class="image-wrapper" style="opacity: 1;">
-                <a href="#"><img src="../static/assets/jpeg-2_medium.jpeg" alt="Owl Image"></a>
-              </div>
-              <div class="">
-                <p class="title"><a href="#">Rococo Sea Salt Wafers</a></p>
-                <p class="vendor"><a href="" title="">The Deli Co</a></p>
-                <p class="price"><span class="money" data-currency-cad="$12.95" data-currency-usd="$9.84 USD" data-currency="USD">$9.84 USD</span></p>
-              </div>
-            </div>
-          </div>
+            {% for item in products %}
+                <div class="item">
+                    <div class="product-item " style="display: block;">
+                      <div class="image-wrapper" style="opacity: 1;">
+                        <a href="{% url 'product_detail'  item.pk %}"><img class="hov" src="{{ item.image.url }}" alt="{{ item.productName }}" style="height: 292px; width: 292px;"></a>
+                      </div>
+                      <div class="clearfix"></div>
+                      <div class="">
+                        <p class="title"><a href="">{{ item.productName }}</a></p>
+                        <p class="vendor"><a href="" title="">{{ item.brand_name }}</a></p>
+                        <p class="price"><span class="money" data-currency-cad="$12.95" data-currency-usd="$9.84 USD" data-currency="USD">${{ item.price }}</span></p>
+                      </div>
+                    </div>
+                </div>
+            {% endfor %}
 
         </div>
       </div>

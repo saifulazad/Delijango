@@ -99,6 +99,8 @@ $(document).ready(function() {
 
     // });
 
+    $('#my-image').imageTooltip();
+
 });
 
  
