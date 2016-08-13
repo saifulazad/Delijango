@@ -1073,6 +1073,13 @@ article .add-to-cart .button {
   margin-bottom: 3px;
 }
 
+.show{
+    display: block;
+}
+
+.hide{
+    display: none;
+}
 
 /*single products style*/
 

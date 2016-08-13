@@ -101,9 +101,9 @@ $(document).ready(function() {
 
     $('#my-image').imageTooltip();
 
-    $(".mega-dropdown").click(function(e){
-        console.log('ddsss')
-        e.stopPropagation();
+    $(".mega-dropdown").click(function(){
+        $(".mega-dropdown-menu").toggleClass("hide show");
+
     });
 
 });
