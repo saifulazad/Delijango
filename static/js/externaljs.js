@@ -101,6 +101,11 @@ $(document).ready(function() {
 
     $('#my-image').imageTooltip();
 
+    $(".mega-dropdown").click(function(e){
+        console.log('ddsss')
+        e.stopPropagation();
+    });
+
 });
 
  

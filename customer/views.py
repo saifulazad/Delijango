@@ -62,6 +62,6 @@ def signup(request):
 def login(request):
     # latest_question_list = Question.objects.order_by('-pub_date')[:5]
     context = {'latest_question_list': 'Hello saddi '}
-    return render(request, 'login.html', context)
+    return render(request, 'customers/login.html', context)
 
 
