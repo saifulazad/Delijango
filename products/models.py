@@ -9,7 +9,15 @@ from stdimage import StdImageField
 
 # Create your models here.
 
+
+
 class Product(models.Model):
+
+    TYPE_CHOICES = (
+        ('L', 'Laptop'),
+        ('D', 'Desktop'),
+    )
+    type = models.CharField(max_length=1, choices=TYPE_CHOICES)
     productName = models.CharField(max_length=200)
     slug = models.SlugField(unique=True)
     category = models.CharField(max_length=200)
@@ -44,3 +52,4 @@ def pre_save_post_receiver(sender, instance, *args, **kwargs):
 
 
 pre_save.connect(pre_save_post_receiver, sender=Product)
+
