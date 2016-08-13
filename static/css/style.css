@@ -987,6 +987,12 @@ article .add-to-cart .button {
 
 
 /*mega menu css starts*/
+.navbar{
+    border: none;
+}
+.navbar-default{
+    bac
+}
 
 .navbar-nav>li>.dropdown-menu {
   margin-top: 20px;
