@@ -33,73 +33,21 @@
 
         <div id="owl-demo2" class="owl-carousel">
 
-          <div class="item">
-            <div class="product-item " style="display: block;">
-              <div class="image-wrapper" style="opacity: 1;">
-                <a href="{% url 'single_product' %}"><img class="hov" src="../static/assets/jpeg-2_medium.jpeg" alt="Owl Image"></a>
-              </div>
-              <div class="clearfix"></div>
-              <div class="">
-                <p class="title"><a href="#">Rococo Sea Salt Wafers</a></p>
-                <p class="vendor"><a href="" title="">The Deli Co</a></p>
-                <p class="price"><span class="money" data-currency-cad="$12.95" data-currency-usd="$9.84 USD" data-currency="USD">$9.84 USD</span></p>
-              </div>
-            </div>
-          </div>
-
-          <div class="item">
-            <div class="product-item " style="display: block;">
-              <div class="image-wrapper" style="opacity: 1;">
-                <a href="single_products"><img class="hov" src="../static/assets/jpeg-2_medium.jpeg" alt="Owl Image"></a>
-              </div>
-              <div class="">
-                <p class="title"><a href="#">Rococo Sea Salt Wafers</a></p>
-                <p class="vendor"><a href="" title="">The Deli Co</a></p>
-                <p class="price"><span class="money" data-currency-cad="$12.95" data-currency-usd="$9.84 USD" data-currency="USD">$9.84 USD</span></p>
-              </div>
-            </div>
-          </div>
-
-          <div class="item">
-            <div class="product-item " style="display: block;">
-              <div class="image-wrapper" style="opacity: 1;">
-                <a href="single_products"><img class="hov" src="../static/assets/jpeg-2_medium.jpeg" alt="Owl Image"></a>
-              </div>
-              <div class="">
-                <p class="title"><a href="#">Rococo Sea Salt Wafers</a></p>
-                <p class="vendor"><a href="" title="">The Deli Co</a></p>
-                <p class="price"><span class="money" data-currency-cad="$12.95" data-currency-usd="$9.84 USD" data-currency="USD">$9.84 USD</span></p>
-              </div>
-            </div>
-          </div>
-
-
-          <div class="item">
-            <div class="product-item " style="display: block;">
-              <div class="image-wrapper" style="opacity: 1;">
-                <a href="single_products"><img class="hov" src="../static/assets/jpeg-2_medium.jpeg" alt="Owl Image"></a>
-              </div>
-              <div class="">
-                <p class="title"><a href="#">Rococo Sea Salt Wafers</a></p>
-                <p class="vendor"><a href="" title="">The Deli Co</a></p>
-                <p class="price"><span class="money" data-currency-cad="$12.95" data-currency-usd="$9.84 USD" data-currency="USD">$9.84 USD</span></p>
-              </div>
-            </div>
-          </div>
-
-
-          <div class="item">
-            <div class="product-item " style="display: block;">
-              <div class="image-wrapper" style="opacity: 1;">
-                <a href="single_products"><img class="hov" src="../static/assets/jpeg-2_medium.jpeg" alt="Owl Image"></a>
-              </div>
-              <div class="">
-                <p class="title"><a href="#">Rococo Sea Salt Wafers</a></p>
-                <p class="vendor"><a href="" title="">The Deli Co</a></p>
-                <p class="price"><span class="money" data-currency-cad="$12.95" data-currency-usd="$9.84 USD" data-currency="USD">$9.84 USD</span></p>
-              </div>
-            </div>
-          </div>
+            {% for item in products %}
+                <div class="item">
+                    <div class="product-item " style="display: block;">
+                      <div class="image-wrapper" style="opacity: 1;">
+                        <a href="{% url 'product_detail'  item.pk %}"><img class="hov" src="{{ item.image.url }}" alt="{{ item.productName }}" style="height: 292px; width: 292px;"></a>
+                      </div>
+                      <div class="clearfix"></div>
+                      <div class="">
+                        <p class="title"><a href="">{{ item.productName }}</a></p>
+                        <p class="vendor"><a href="" title="">{{ item.brand_name }}</a></p>
+                        <p class="price"><span class="money" data-currency-cad="$12.95" data-currency-usd="$9.84 USD" data-currency="USD">${{ item.price }}</span></p>
+                      </div>
+                    </div>
+                  </div>
+            {% endfor %}
 
         </div>
       </div>
