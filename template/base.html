@@ -44,7 +44,7 @@
     <div class="row top">
       <div class="columns">
         <h1 class="title clearfix" role="banner">
-          <a href="{% url 'index' %}" role="banner" title="Deli - Blockshop Shopify Theme"><img src="../static/assets/logo.png"> </a>
+          <a href="{% url 'index' %}" role="banner" title="Deli - Blockshop Shopify Theme"><img src="{% static "assets/logo.png" %}"> </a>
         </h1>
       </div>
 
@@ -65,7 +65,7 @@
         </div>
 
         <div class="account-container" >
-          <a href="{% url 'login' %}">Log in</a> or <a href="{% url 'signup' %}" id="
+          <a href="{% url 'login' %}">Log in</a> or <a href="{% url 'registration_register' %}" id="
             customer_register_link">Sign up</a>
           <a href="#"><span class="glyphicon glyphicon-remove"></span></a>
         </div>

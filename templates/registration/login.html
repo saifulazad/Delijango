@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <section class="main-content">
+
+
+
+<div class="account-content">
+<div id="customer-register">
+  <div class="row">
+    <div id="register" class="columns large-12">
+      <h1 class="page-title">Create Account</h1>
+      <ul class="breadcrumb">
+        <li><a href="index2.html">Home</a></li>
+        <li>Account</li>
+      </ul>
+   
+         
+</ul>
+
+      <form method="post" action="" id="create_customer" accept-charset="UTF-8">
+  
+        
+       {% csrf_token  %}
+          {{form.as_p}}
+           <div class="action_bottom">
+          <input class="button" type="submit" value="Sign In">
+          <span class="note">or <a href="{% url 'signup' %}">Register a new Account</a></span>
+        </div>
+      </form>
+        
+    </div><!-- #register -->
+  </div><!-- .row -->
+</div><!-- #customer-register -->
+</div>
+
+</section>
+{% endblock %}

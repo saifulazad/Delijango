@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.http import Http404
 from django.shortcuts import render
 from products.models import Product
@@ -5,7 +6,7 @@ from products.models import Product
 
 # Create your views here.
 
-
+@login_required
 def product_detail(request, product_id):
     try:
         product = Product.objects.get(pk=product_id)

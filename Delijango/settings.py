@@ -58,7 +58,7 @@ ROOT_URLCONF = 'Delijango.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR+'/template/'],
+        'DIRS': [BASE_DIR+'/template/', BASE_DIR+'/templates/'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

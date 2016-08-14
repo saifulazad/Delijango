@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+
+    <section class="main-content">
+        <div class="account-content">
+            <div id="customer-register">
+              <div class="row">
+                <div id="register" class="columns large-12">
+                  <h1 class="page-title">Create Account</h1>
+                  <ul class="breadcrumb">
+                    <li><a href="index2.html">Home</a></li>
+                    <li>Register</li>
+                  </ul>
+                  <form method="post" action="">
+                    {% csrf_token  %}
+                    {{form.as_p}}
+                     <div class="action_bottom">
+                      <input class="button" type="submit" value="Create">
+                      <span class="note">or <a href={% url 'login' %}>Login to an Existing Account</a></span>
+                    </div>
+                  </form>
+                </div><!-- #register -->
+              </div><!-- .row -->
+            </div><!-- #customer-register -->
+        </div>
+    </section>
+
+{% endblock %}
