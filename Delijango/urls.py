@@ -23,6 +23,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^', include('customer.urls')),
     url(r'^products/', include('products.urls')),
+    url(r'^accounts/', include('registration.backends.simple.urls')),
 ]
 
 
