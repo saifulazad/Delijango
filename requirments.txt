@@ -1,4 +1,5 @@
 Django==1.9.8
+django-registration==2.1.2
 django-stdimage==2.3.3
 Pillow==3.3.0
 progressbar2==3.10.0
