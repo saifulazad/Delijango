@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'customer.apps.CustomerConfig',
     'products.apps.ProductsConfig',
     'stdimage',
-    'cart',
+
     'carton',
     'shopping',
 ]
