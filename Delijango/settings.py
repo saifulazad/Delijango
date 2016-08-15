@@ -39,8 +39,11 @@ INSTALLED_APPS = [
     'customer.apps.CustomerConfig',
     'products.apps.ProductsConfig',
     'stdimage',
-]
 
+    'carton',
+    'shopping',
+]
+CART_PRODUCT_MODEL = 'products.models.Product'
 
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
