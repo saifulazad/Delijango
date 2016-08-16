@@ -105,6 +105,25 @@ $(document).ready(function() {
         $(".mega-dropdown-menu").toggleClass("hide show");
 
     });
+    
+    $(".cart-form").submit(function(e) {
+
+        var product_id = $('#id').val();
+
+        // var url = "path/to/your/script.php"; // the script where you handle the form input.
+        $.ajax({
+               type: "POST",
+               url: 'http://127.0.0.1:8000/shopping-cart/add/'+ product_id + '/',
+               data: $(".cart-form").serialize(), // serializes the form's elements.
+
+               // success: function(data)
+               // {
+               //     alert(data); // show response from the php script.
+               // }
+             });
+
+        e.preventDefault(); // avoid to execute the actual submit of the form.
+    });
 
 });
 

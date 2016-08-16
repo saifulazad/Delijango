@@ -57,6 +57,7 @@
               <div class="quantity">
                 <label for="quantity">Quantity</label>
                 <input id="quantity" type="number" name="quantity" min="1" value="1">
+                  <input id="id" type="hidden" name="id" value="{{ product.id }}">
               </div>
 
               <div class="add-to-cart">
@@ -90,6 +91,8 @@
 
       <div class="visible-xs col-sm-6 col-md-6 col-lg-6">
           <form class="cart-form custom" action="" method="post" style="margin-bottom: 30px">
+
+              {% csrf_token %}
 
 
             <div class="quanity-cart-row clearfix">

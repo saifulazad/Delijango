@@ -1,10 +1,17 @@
+{% extends "base.html" %}
+
 {% load carton_tags %}
-<html>
-<body>
+{% block content %}
+<section class="main-content">
+  <header class="row">
+      <div class="columns">
+        <h1 class="page-title">Your Cart</h1>
+      </div>
+  </header>
 
-<h1>Shopping Cart</h1>
-
-{% get_cart as cart %}
+<div class="row">
+    <div class="col-md-12">
+        {% get_cart as cart %}
 
     <table border="1">
     <tr>
@@ -23,5 +30,10 @@
 
     Total: {{ cart.total }}
 
-</body>
-</html>
+    </div>
+</div>
+
+</section>
+
+
+{% endblock %}

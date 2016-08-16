@@ -5,9 +5,9 @@ from carton.cart import Cart
 from products.models import Product
 
 
-def add(request):
+def add(request, product_id):
     cart = Cart(request.session)
-    product = Product.objects.get(id=request.GET.get('id'))
+    product = Product.objects.get(id=product_id)
     cart.add(product, price=product.price)
     return HttpResponse("Added")
 
