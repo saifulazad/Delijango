@@ -23,7 +23,7 @@ body {
     padding-left: 5px;
 }
 
-  article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary {
+  article, aside, details, figcaption, figure, footer, header, main, nav, section, summary {
     display: block;
 }
 
@@ -990,9 +990,9 @@ article .add-to-cart .button {
 .navbar{
     border: none;
 }
-.navbar-default{
-    bac
-}
+/*.navbar-default{*/
+    /*bac*/
+/*}*/
 
 .navbar-nav>li>.dropdown-menu {
   margin-top: 20px;
@@ -1122,3 +1122,77 @@ article .add-to-cart .button {
     -o-transform:scale(1.25); /* Opera */
      transform:scale(1.25);
 }
+
+
+/*cart style on header*/
+
+.cart-container {
+    margin-top: 2em;
+    width: auto;
+    position: absolute;
+    right: 55px;
+    padding: 0;
+}
+
+.cart {
+    width: 100%;
+    text-align: right;
+    padding: 0;
+}
+
+.cart a:link {
+    margin-left: 8px;
+}
+.cart .cart-link {
+    line-height: 30px;
+    color: #444444;
+    font-weight: bold;
+}
+
+/*cart page*/
+.cart-table {
+    margin-bottom: 30px;
+    background: transparent;
+    border: solid 1px #ebebeb;
+}
+.cart-table thead{
+    background: #fafafa;
+}
+.cart-table img {
+    max-width: 120px;
+}
+
+.cart-table tr th, table tr td {
+    padding: 0.75em 0.83333em;
+    font-size: 1.16667em;
+    color: #222222;
+}
+
+.cart-table tr th, .template-cart .cart-table tr td {
+    padding: 6px 3px;
+}
+.cart-table thead tr th, .cart-table tfoot tr th, .cart-table tbody tr td, table tr td, .cart-table tfoot tr td {
+    display: table-cell;
+    line-height: 1.5em;
+}
+
+@media only screen and (min-width: 768px){
+.cart-table tr th, .template-cart .cart-table tr td {
+    padding: 0.75em 0.83333em;
+}}
+.cart-table tr:nth-of-type(even) {
+    background: #fafafa;
+}
+
+.totals {
+    text-align: right;
+    padding: 0;
+}
+
+@media only screen and (min-width: 1280px){
+.totals {
+    left: 41.66667%;
+    right: auto;
+    width: 58.33333%;
+}}
+

@@ -70,51 +70,22 @@ $(document).ready(function() {
         $('.content li:nth-child('+tab_id+')').addClass('active');
      });
 
-
-     // if($(document).width()<768){
-     //  console.log('hello');
-     // }
-
-    //  $(window).resize(function(){
-
-    //    if ($(window).width() <= 768) {
-    //     $('.positions').removeClass('js');
-    //     $('.positions').addClass('show-for-small');
-    //    } 
-
-    //    else if($(window).width() <= 1280){
-    //     $('.positions').removeClass('js');
-    //     $('.positions').addClass('show-for-medium-only');
-    //     // $('.div').removeClass('positions show-for-medium-only');
-    //     // $('.positions').addClass('show-for-large-up');
-    //    }
-
-    //    else{
-
-    //     $('.positions').removeClass('js');
-    //     $('.positions').addClass('positions show-for-large-up');
-    //     // $('.positions').removeClass('positions show-for-small');
-    //     // $('.positions').addClass('show-for-medium-only');
-    //    }
-
-    // });
-
     $('#my-image').imageTooltip();
-
-    $(".mega-dropdown").click(function(){
-        $(".mega-dropdown-menu").toggleClass("hide show");
-
-    });
     
+
+    // cart js
+
     $(".cart-form").submit(function(e) {
 
         var product_id = $('#id').val();
-
-        // var url = "path/to/your/script.php"; // the script where you handle the form input.
+        var quantity = $('#quantity').val();
+        var url = "http://127.0.0.1:8000/shopping-cart/add/"; // the script where you handle the form input.
         $.ajax({
                type: "POST",
-               url: 'http://127.0.0.1:8000/shopping-cart/add/'+ product_id + '/',
-               data: $(".cart-form").serialize(), // serializes the form's elements.
+               url: url,
+               // data: $(".cart-form").serialize(), // serializes the form's elements.
+               data: {id: product_id, qty: parseInt(quantity)}
+
 
                // success: function(data)
                // {
@@ -125,6 +96,78 @@ $(document).ready(function() {
         e.preventDefault(); // avoid to execute the actual submit of the form.
     });
 
+
+    $(".selectAnchor").click(function(event){
+        event.preventDefault();
+        var product_id = $(this).data("value");
+        var $row = $(this).closest("tr");
+        var url = "http://127.0.0.1:8000/shopping-cart/remove/"; // the script where you handle the form input.
+        $.ajax({
+          type: 'GET',
+          url: url,
+          data: { product_id: product_id },
+          success: function(data){
+                $row.find('td').fadeOut(1000,function(){
+                    $row.remove();
+                });
+          }
+        });
+    });
+
+    var csrftoken = getCookie('csrftoken');
+
+    /*
+    The functions below will create a header with csrftoken
+    */
+
+    function csrfSafeMethod(method) {
+        // these HTTP methods do not require CSRF protection
+        return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+    }
+
+    function sameOrigin(url) {
+        // test that a given url is a same-origin URL
+        // url could be relative or scheme relative or absolute
+        var host = document.location.host; // host + port
+        var protocol = document.location.protocol;
+        var sr_origin = '//' + host;
+        var origin = protocol + sr_origin;
+        // Allow absolute or scheme relative URLs to same origin
+        return (url == origin || url.slice(0, origin.length + 1) == origin + '/') ||
+            (url == sr_origin || url.slice(0, sr_origin.length + 1) == sr_origin + '/') ||
+            // or any other URL that isn't scheme relative or absolute i.e relative.
+            !(/^(\/\/|http:|https:).*/.test(url));
+    }
+
+    $.ajaxSetup({
+        beforeSend: function(xhr, settings) {
+            if (!csrfSafeMethod(settings.type) && sameOrigin(settings.url)) {
+                // Send the token to same-origin, relative URLs only.
+                // Send the token only if the method warrants CSRF protection
+                // Using the CSRFToken value acquired earlier
+                xhr.setRequestHeader("X-CSRFToken", csrftoken);
+            }
+        }
+    });
+
 });
 
- 
+ /* set Cookie to hide menu */
+function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    var expires = "expires=" + d.toGMTString();
+    document.cookie = cname + "=" + cvalue + "; " + expires;
+}
+
+/* get Cookie to check hide menu */
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i].trim();
+        if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+    }
+    return "";
+}
+
