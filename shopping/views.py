@@ -1,40 +1,35 @@
+from carton.cart import Cart
+import simplejson as json
+from django.core import serializers
 from django.http import HttpResponse
 from django.shortcuts import render
-
-from carton.cart import Cart
+# import json
 from products.models import Product
-
-#
-# def add(request, quantity, product_id= None):
-#     cart = Cart(request.session)
-#     product = Product.objects.get(id=product_id)
-#     print(quantity)
-#     cart.add(product, price=product.price, quantity=quantity)
-#     return HttpResponse("Added")
-#
-# def remove(request, product_id= None):
-#     cart = Cart(request.session)
-#     product = Product.objects.get(id=product_id)
-#     cart.remove(product)
-#     return HttpResponse("Removed")
-#
-#
-# def show(request):
-#     return render(request, 'shopping/show-cart.html')
-
 
 
 def add(request):
     cart = Cart(request.session)
     product = Product.objects.get(id=request.POST.get('id'))
     cart.add(product, price=product.price, quantity=request.POST.get('qty'))
-    return HttpResponse("Added")
+    recent_product = {
+        'name': product.productName,
+        'image': product.image.url,
+        'price': product.price,
+        'total': cart.total,
+        'items': cart.count,
+    }
+    return HttpResponse(
+        json.dumps(recent_product,use_decimal=True),
+        content_type="application/json"
+    )
+    # return HttpResponse(recent_product)
+
 
 def remove(request):
     cart = Cart(request.session)
     product = Product.objects.get(id=request.GET.get('product_id'))
     cart.remove(product)
-    return HttpResponse("Removed")
+    return HttpResponse(cart.total)
 
 
 def show(request):

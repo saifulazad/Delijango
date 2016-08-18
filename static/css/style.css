@@ -1149,6 +1149,67 @@ article .add-to-cart .button {
     font-weight: bold;
 }
 
+
+.cart .recently-added {
+    display: none;
+    border: 1px solid #ebebeb;
+    background: #ffffff;
+    text-align: left;
+    position: absolute;
+    width: 350px;
+    top: 50px;
+    right: 15px;
+    padding: 10px 10px 20px 10px;
+    z-index: 10;
+}
+.cart .recently-added table {
+    font-size: 0.83333em;
+    margin: 0 0 10px 0;
+    border: 0;
+}
+.cart .recently-added table thead {
+    background: none;
+}
+.cart .recently-added table .cart-item {
+    padding-left: 0;
+}
+.cart .recently-added table tr td {
+    padding: 10px 5px;
+}
+.cart .recently-added a {
+    margin-left: 0;
+}
+.cart .recently-added table img {
+    max-width: 80px;
+}
+.cart .recently-added h1, .cart .recently-added h2, .cart .recently-added h3 {
+    font-size: 1em;
+    font-weight: normal;
+    margin-bottom: 0;
+}
+.cart .recently-added table .cart-price {
+    width: 25%;
+    padding-right: 0;
+    text-align: right;
+}
+.cart .recently-added table tfoot {
+    border-top: 1px solid #ebebeb;
+    background: none;
+}
+.cart .recently-added table tfoot tr,  .cart .recently-added table tfoot td {
+    padding: 20px 0;
+}
+.cart .recently-added table tfoot .items-count {
+    font-weight: normal;
+}
+.cart .recently-added .button {
+    margin-top: 10px;
+    width: 100%;
+    margin: 0;
+}
+
+
+
 /*cart page*/
 .cart-table {
     margin-bottom: 30px;

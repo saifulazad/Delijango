@@ -83,14 +83,21 @@ $(document).ready(function() {
         $.ajax({
                type: "POST",
                url: url,
-               // data: $(".cart-form").serialize(), // serializes the form's elements.
-               data: {id: product_id, qty: parseInt(quantity)}
-
-
-               // success: function(data)
-               // {
-               //     alert(data); // show response from the php script.
-               // }
+               data: {id: product_id, qty: parseInt(quantity)},
+               success: function(data)
+               {
+                   // $('span.number').fadeOut(1000,function () {
+                   //      $(this).html(data).fadeIn('slow');
+                   //  });
+                   // $(".cart").prepend("<div class='ss'>ssssssssss</div>");
+                   // $(".cart .ss").delay(3000).fadeOut("slow");
+                   $(".cart .recently-added .cart-item img").attr("src", data['image']);
+                   $(".cart .recently-added .cart-detail a").html(data['name']);
+                   $(".cart .recently-added .cart-price span").html('৳&nbsp;'+ data['price'])
+                   $(".cart .recently-added .items-count a").html(data['items']+' items')
+                   $(".cart .recently-added .total-price").html('৳&nbsp;'+ data['total'])
+                   $(".cart .recently-added").fadeIn("slow").fadeOut(15000);
+               }
              });
 
         e.preventDefault(); // avoid to execute the actual submit of the form.
@@ -110,6 +117,9 @@ $(document).ready(function() {
                 $row.find('td').fadeOut(1000,function(){
                     $row.remove();
                 });
+                  $('span.money').fadeOut(1000,function () {
+                        $(this).html('৳&nbsp;'+ data).fadeIn('slow');
+                  });
           }
         });
     });
