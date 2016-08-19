@@ -12,19 +12,6 @@
       </div>
     </div>
 
-
-{#    <div class="previous-next row">#}
-{#      <div class="previous col-md-6">#}
-{#        <a class="left" title="Previous Product" href="/collections/featured-products/products/rococo-sea-salt-wafers"><span aria-hidden="true" class="glyph arrow-left"></span> Previous Item</a>#}
-{#      </div>#}
-{##}
-{#      <div class="next col-md-6">#}
-{#        <a class="right" title="Next Product" href="/collections/featured-products/products/austin-east-ciders-gold-top">Next Item <span aria-hidden="true" class="glyph arrow-right"></span></a>#}
-{#        <div class="border-decoration show-for-large-up"></div>#}
-{#      </div>#}
-{#    </div>#}
-
-
   </header>
 
   <article class="row">
@@ -40,7 +27,7 @@
           <div class="prices">
             <div itemprop="offers" itemscope="" itemtype="">
               <p>
-                <span class="actual-price money" itemprop="price" data-currency-usd="$9.28 USD" data-currency="USD">$9.28 USD</span>
+                <span class="actual-price money" itemprop="price" >৳&nbsp;{{ product.price }}</span>
                 &nbsp;
                 <span class="compare-price"></span>
               </p>
@@ -50,13 +37,14 @@
 
         <div class="hidden-xs">
           <form class="cart-form custom" action="" method="post">
-
+            {% csrf_token %}
 
             <div class="quanity-cart-row clearfix">
 
               <div class="quantity">
                 <label for="quantity">Quantity</label>
                 <input id="quantity" type="number" name="quantity" min="1" value="1">
+                  <input id="id" type="hidden" name="id" value="{{ product.id }}">
               </div>
 
               <div class="add-to-cart">
@@ -90,6 +78,8 @@
 
       <div class="visible-xs col-sm-6 col-md-6 col-lg-6">
           <form class="cart-form custom" action="" method="post" style="margin-bottom: 30px">
+
+              {% csrf_token %}
 
 
             <div class="quanity-cart-row clearfix">

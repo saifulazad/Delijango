@@ -15,6 +15,7 @@ class CartItem(object):
         self.quantity = int(quantity)
         self.price = Decimal(str(price))
 
+
     def __repr__(self):
         return u'CartItem Object (%s)' % self.product
 
@@ -205,3 +206,4 @@ class Cart(object):
         The total value of all items in the cart.
         """
         return sum([item.subtotal for item in self.items])
+

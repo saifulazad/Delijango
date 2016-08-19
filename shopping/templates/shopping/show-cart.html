@@ -1,27 +1,87 @@
-{% load carton_tags %}
-<html>
-<body>
+{% extends "base.html" %}
 
-<h1>Shopping Cart</h1>
+{% load carton_tags %}
+{% block content %}
+<section class="main-content">
+
+<header class="row">
+  <div class="columns">
+    <h1 class="page-title">Your Cart</h1>
+  </div>
+</header>
 
 {% get_cart as cart %}
+{% if  cart.count  %}
+<form method="post" id="custom-form">
+    <div class="row">
+        <div class="col-md-12">
+            <table width="100%" class="cart-table">
+                <thead>
+                  <tr>
+                    <th class="image">&nbsp;</th>
+                    <th class="title">&nbsp;</th>
+                    <th class="quantity">Quantity</th>
+                    <th class="total">Total</th>
+                    <th class="remove">&nbsp;</th>
+                  </tr>
+                </thead>
+                <tbody>
+                {% for item in cart.items %}
+                    <tr>
+                        <td>
+                          <a href="{% url 'product_detail' product_id=item.product.id  %}">
+                            <img src="{{ item.product.image.url }}" alt="{{ item.product.productName }}">
+                          </a>
+                        </td>
+                        <td class="title">
+                          <p><a href="{% url 'product_detail' product_id=item.product.id  %}">{{ item.product }}</a></p>
+                        </td>
+                        <td class="quantity"><input type="text" class="field styled-input" value="{{ item.quantity }}"></td>
+                        <td class="total"><span class="money">৳&nbsp;{{ item.subtotal }}</span></td>
+                        <td class="remove"><a title="Remove" href="" aria-hidden="true" class="fa fa-times selectAnchor" data-value="{{ item.product.id }}" style="color: red"></a></td>
+                      </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
 
-    <table border="1">
-    <tr>
-        <th>Product</th>
-        <th>Quantity</th>
-        <th>Price</th>
-    </tr>
-    {% for item in cart.items %}
-    <tr>
-        <td>{{ item.product }}</td>
-        <td>{{ item.quantity }}</td>
-        <td>{{ item.subtotal }}</td>
-    </tr>
-        {% endfor %}
-    </table>
 
-    Total: {{ cart.total }}
+    <div class="row">
 
-</body>
-</html>
+        <div class="col-md-6">
+{#            <div class="order-notes">#}
+{#              <div class="container">#}
+{#                <h3>Order Notes</h3>#}
+{#                <textarea id="cart-notes-area" name="note"></textarea>#}
+{#              </div>#}
+{#            </div>#}
+            <div class="continue-shopping show-for-medium-up">
+                <span><a href="{% url 'index' %}"><span aria-hidden="true" class="fa fa-hand-o-left md"></span> Continue Shopping</a></span>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="totals columns">
+            <h3><strong>Subtotal <span class="money" data-currency-cad="$12.95 CAD" data-currency="CAD">৳&nbsp;{{ cart.total }}</span></strong></h3>
+            <p class="shipping-taxes-notification">Shipping &amp; taxes calculated at checkout</p>
+            <input type="submit" name="update" class="button" value="Update Cart">
+            <input class="button" type="submit" name="checkout" value="Check Out">
+          </div>
+
+        </div>
+    </div>
+</form>
+{% else %}
+<section class="empty-cart row">
+  <div class="columns">
+    <h1>It appears that your cart is currently empty!</h1>
+    <p><a class="button" href="/collections/all">Continue browsing</a></p>
+  </div>
+</section>
+
+{% endif %}
+
+</section>
+
+{% endblock %}

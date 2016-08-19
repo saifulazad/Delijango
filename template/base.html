@@ -14,12 +14,8 @@
     <link rel="stylesheet" href="{% static "css/owl.theme.css" %}"/>
     <link rel="stylesheet" href="{% static "css/font-awesome.min.css" %}"/>
     <link rel="stylesheet" href="{% static "css/style.css" %}"/>
-{#    <link rel="stylesheet" href="{% static "css/error.css" %}"/>#}
-
-{#    <script src="../static/js/jquery-2.1.4.min.js"></script>#}
-{#    <script src="../static/js/react.js"></script>#}
-{#    <script src="../static/js/react-dom.js"></script>#}
-{#    <script src="../static/js/browser.js"></script>#}
+    <link rel="stylesheet" href="{% static "css/component.css" %}"/>
+    <script src="{% static 'js/modernizr.custom.js' %}"></script>
 
     <style>
 
@@ -52,9 +48,9 @@
       <div class="search-account columns">
         <div class="menu">
           <a class="searchbar-open" href="#">Search<span aria-hidden="false" class="glyphicon glyphicon-search
-          	"></span></a>
+            "></span></a>
           <a class="account-open" href="#">Account<span aria-hidden="true" class="glyphicon glyphicon-user">
-          	</span></a>
+            </span></a>
         </div>
 
         <div class="searchbar-container" style="display:none">
@@ -72,298 +68,161 @@
       </div>
     </div>
 
-{#    <div class="bottom-row">#}
-{#      <div class="row">#}
-{#        <div class="columns menu-container">#}
-{#          <div class="main-menu">#}
-{#            <nav role="navigation" class="widescreen clearfix">#}
-{#              <ul class="font-nav">#}
-{#                <li class="nav-item"><a class="nav-item-link" href="{% url 'index' %}">Home</a></li>#}
-{#                <li class="dropdown"><a class="catalogue" href="#">Catalogue<span class="caret"></span></a>#}
-{#                  <ul class="sub-nav catalog" style="display:none">#}
-{#                    <li class="row">#}
-{#                      <div class="sub-nav-item columns large-3">#}
-{#                        <a href="collections"><h3 class="title"><span>Collections</span></h3></a>#}
-{#                        <ul>#}
-{#                          <li><a href="all_products">All</a></li>#}
-{#                          <li><a href="">Chocolates &amp; Candy</a></li>#}
-{#                        </ul>#}
-{#                      </div>#}
-{##}
-{#                      <div class="sub-nav-item columns large-3">#}
-{#                        <a class="disabled" href="#"><h3 class="title"><span>Price</span></h3></a>#}
-{#                        <ul>#}
-{#                          <li><a href="">Under $10</a></li>#}
-{#                          <li><a href="">$10 - $20</a></li>#}
-{#                        </ul>#}
-{#                      </div>#}
-{#                      <div class="sub-nav-item columns large-3">#}
-{#                        <a class="disabled" href="#"><h3 class="title"><span>Special Collections</span></h3></a>#}
-{#                        <ul>#}
-{#                          <li><a href="">On Sale</a></li>#}
-{#                          <li><a href="">New</a></li>#}
-{#                        </ul>#}
-{#                      </div>#}
-{#                    </li>#}
-{#                  </ul>#}
-{#                </li>#}
-{#                <li class="nav-item"><a class="nav-item-link" href="#">Blog</a></li>#}
-{#              </ul>#}
-{#            </nav>#}
-{#          </div>#}
-{#          <div class="main-menu pull-right">#}
-{#            <nav role="navigation" class="widescreen clearfix">#}
-{#              <ul class="font-nav">#}
-{#                <li class="nav-item"><i class="fa fa-shopping-cart"></i><a class="nav-item-link" href="#">Cart(<span>1</span>)</a></li>#}
-{#              </ul>#}
-{#            </nav>#}
-{#          </div>#}
-{#        </div>#}
-{##}
-{#        <!-- <div class="columns cart-container">#}
-{#          <div class="cart">#}
-{#            <div class="show-for-medium-up">#}
-{#              <a class="cart-link" href="/cart">Cart <span class="number-wrapper hide">(<span class="number">0</span>)</span><span aria-hidden="true" class="glyph cart"></span></a>#}
-{#              <div class="recently-added">#}
-{#                <table width="100%">#}
-{#                  <thead>#}
-{#                    <tr>#}
-{#                      <td colspan="3">Recently Added</td>#}
-{#                    </tr>#}
-{#                  </thead>#}
-{#                  <tbody>#}
-{#                  </tbody>#}
-{##}
-{#                  <tfoot>#}
-{#                    <tr>#}
-{#                      <td class="items-count"><a href="/cart"><span class="number">0</span> Items</a></td>#}
-{#                      <td colspan="2" class="text-right all-caps"><strong>Total <span class="total-price" style="margin-left:5px;">$0.00</span></strong></td>#}
-{#                    </tr>#}
-{#                  </tfoot>#}
-{#                </table>#}
-{#                <div class="row">#}
-{#                  <div class="checkout columns">#}
-{#                    <a class="button" href="/cart">Go to Checkout</a>#}
-{#                  </div><!-- #cart-meta -->#}
-{#                <!-- </div>#}
-{#                <div class="error">#}
-{#                  <p>The item you just added is unavailable. Please select another product or variant.</p>#}
-{#                </div>#}
-{#              </div>#}
-{#            </div>#}
-{#            <div class="show-for-small hide-for-ie9-down">#}
-{#              <div class="recently-added-mask hide"></div>#}
-{#              <div class="recently-added mobile">#}
-{#                <a aria-hidden="true" class="close glyph cross"></a>#}
-{#                <div class="row">#}
-{#                  <div class="columns">#}
-{#                    <p><strong class="all-caps">Recently Added</strong></p>#}
-{#                    <p class="mobile-item"></p>#}
-{#                    <p class="items-count"><a href="/cart"><span class="number">0</span> Items</a></p>#}
-{#                    <p><strong class="all-caps">Total <span class="total-price" style="margin-left:5px;">$0.00</span></strong></p>#}
-{#                  </div>#}
-{#                </div>#}
-{#                <div class="row">#}
-{#                  <div class="checkout columns">#}
-{#                    <a class="button" href="/cart">Go to Checkout</a>#}
-{#                  </div><!-- #cart-meta -->#}
-{#                <!-- </div>#}
-{##}
-{#                <div class="error">#}
-{#                  <p>The item you just added is unavailable. Please select another product or variant.</p>#}
-{#                </div>#}
-{#              </div>#}
-{#            </div>#}
-{#          </div>#}
-{#        </div> -->#}
-{##}
-{#        <div class="mobile-tools">#}
-{#          <a  class="bars"><i class="fa fa-bars"></i></a>#}
-{#          <a href=""><i class="fa fa-search"></i></a>#}
-{#          <a href="/"><i class="fa fa-user"></i></a>#}
-{#          <a href="/"><i class="fa fa-shopping-cart"></i></a>#}
-{##}
-{#        </div>#}
-{##}
-{##}
-{#      </div>#}
-{#    </div>#}
-
-{#    <div class="main-menu-dropdown-panel" style="display: none;">#}
-{#      <div class="row" style="height: 215px;">#}
-{##}
-{#        <div class="sub-nav-item columns large-3">#}
-{#          <a href="collections"><h3 class="title"><span>Collections</span></h3></a>#}
-{#          <ul>#}
-{#            <li><a href="all_products">All</a></li>#}
-{#            <li><a href="">Chocolates &amp; Candy</a></li>#}
-{#          </ul>#}
-{#        </div>#}
-{##}
-{#        <div class="sub-nav-item columns large-3">#}
-{#          <a class="disabled" href="#"><h3 class="title"><span>Price</span></h3></a>#}
-{#          <ul>#}
-{#            <li><a href="#">Under $10</a></li>#}
-{#            <li><a href="#">$10 - $20</a></li>#}
-{#          </ul>#}
-{#        </div>#}
-{##}
-{#        <div class="sub-nav-item columns large-3">#}
-{#          <a class="disabled" href="#"><h3 class="title"><span>Special Collections</span></h3></a>#}
-{#          <ul>#}
-{#            <li><a href="#">On Sale</a></li>#}
-{#            <li><a href="#">New</a></li>#}
-{#          </ul>#}
-{#        </div>#}
-{#      </div>#}
-{#    </div>#}
-{##}
-{#    <div class="mobile-menu" style="display: none;">#}
-{#      <nav role="navigation" class="widescreen clearfix">#}
-{#        <ul class="font-nav">#}
-{#            <li class="nav-item"><a class="nav-item-link" href="#">Home</a></li>#}
-{#            <li class="dropdown"><a  href="#" id="clickable-dropdown">Catalogue<span class="caret"></span></a>#}
-{##}
-{#                <li  class="row sub-nav catalog" style="display:none" id="mobile-nav">#}
-{##}
-{#                  <div class="sub-nav-item columns large-3">#}
-{#                    <a href=""><h3 class="title"><span>Collections</span></h3></a>#}
-{#                    <ul>#}
-{#                      <li><a href="all_products">All</a></li>#}
-{#                      <li><a href="">Chocolates &amp; Candy</a></li>#}
-{#                    </ul>#}
-{#                  </div>#}
-{##}
-{#                  <div class="sub-nav-item columns large-3">#}
-{#                    <a class="disabled" href="#"><h3 class="title"><span>Price</span></h3></a>#}
-{#                    <ul>#}
-{#                      <li><a href="">Under $10</a></li>#}
-{#                      <li><a href="">$10 - $20</a></li>#}
-{#                    </ul>#}
-{#                  </div>#}
-{#                  <div class="sub-nav-item columns large-3">#}
-{#                    <a class="disabled" href="#"><h3 class="title"><span>Special Collections</span></h3></a>#}
-{#                    <ul>#}
-{#                      <li><a href="">On Sale</a></li>#}
-{#                      <li><a href="">New</a></li>#}
-{#                    </ul>#}
-{#                  </div>#}
-{#                </li>#}
-{##}
-{#            </li>#}
-{#            <li class="nav-item"><a class="nav-item-link" href="#">Blog</a></li>#}
-{#          </ul>#}
-{#        </nav>#}
-{#    </div>#}
-
-
-
 
 {#    mega menu starts#}
-
- <nav class="navbar  row">
-    <div class="navbar-header">
-      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".js-navbar-collapse">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">MegaMenu</a>
-    </div>
-
-
-    <div class="collapse navbar-collapse js-navbar-collapse">
-      <ul class="nav navbar-nav">
-        <li class="dropdown mega-dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Collection <span class="glyphicon glyphicon-chevron-down pull-right"></span></a>
-
-          <ul class="dropdown-menu mega-dropdown-menu row hide">
-            <li class="col-sm-3">
-              <ul>
-                <li class="dropdown-header">New in Stores</li>
-                <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                  <div class="carousel-inner">
-                    <div class="item active">
-                      <a href="#"><img src="http://placehold.it/254x150/3498db/f5f5f5/&text=New+Collection" class="img-responsive" alt="product 1"></a>
-                      <h4><small>Summer dress floral prints</small></h4>
-                      <button class="btn btn-primary" type="button">49,99 €</button>
-                      <button href="#" class="btn btn-default" type="button"><span class="glyphicon glyphicon-heart"></span> Add to Wishlist</button>
-                    </div>
-                    <!-- End Item -->
-                    <div class="item">
-                      <a href="#"><img src="http://placehold.it/254x150/ef5e55/f5f5f5/&text=New+Collection" class="img-responsive" alt="product 2"></a>
-                      <h4><small>Gold sandals with shiny touch</small></h4>
-                      <button class="btn btn-primary" type="button">9,99 €</button>
-                      <button href="#" class="btn btn-default" type="button"><span class="glyphicon glyphicon-heart"></span> Add to Wishlist</button>
-                    </div>
-                    <!-- End Item -->
-                    <div class="item">
-                      <a href="#"><img src="http://placehold.it/254x150/2ecc71/f5f5f5/&text=New+Collection" class="img-responsive" alt="product 3"></a>
-                      <h4><small>Denin jacket stamped</small></h4>
-                      <button class="btn btn-primary" type="button">49,99 €</button>
-                      <button href="#" class="btn btn-default" type="button"><span class="glyphicon glyphicon-heart"></span> Add to Wishlist</button>
-                    </div>
-                    <!-- End Item -->
+     <div class="main">
+         <div class="row">
+             <div class="columns menu-container">
+                 <nav id="cbp-hrmenu" class="cbp-hrmenu">
+                        <ul>
+                            <a href="{% url 'index' %}">Home</a>
+                            <li>
+                                <a href="#">Products</a>
+                                <div class="cbp-hrsub">
+                                    <div class="cbp-hrsub-inner">
+                                        <div>
+                                            <h4>Learning &amp; Games</h4>
+                                            <ul>
+                                                <li class="columns large-3"><a href="#">Catch the Bullet</a></li>
+                                                <li><a href="#">Snoopydoo</a></li>
+                                                <li><a href="#">Fallen Angel</a></li>
+                                                <li><a href="#">Sui Maker</a></li>
+                                                <li><a href="#">Wave Master</a></li>
+                                                <li><a href="#">Golf Pro</a></li>
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <h4>Utilities</h4>
+                                            <ul>
+                                                <li><a href="#">Gadget Finder</a></li>
+                                                <li><a href="#">Green Tree Express</a></li>
+                                                <li><a href="#">Green Tree Pro</a></li>
+                                                <li><a href="#">Wobbler 3.0</a></li>
+                                                <li><a href="#">Coolkid</a></li>
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <h4>Education</h4>
+                                            <ul>
+                                                <li><a href="#">Learn Thai</a></li>
+                                                <li><a href="#">Math Genius</a></li>
+                                                <li><a href="#">Chemokid</a></li>
+                                            </ul>
+                                            <h4>Professionals</h4>
+                                            <ul>
+                                                <li><a href="#">Success 1.0</a></li>
+                                                <li><a href="#">Moneymaker</a></li>
+                                            </ul>
+                                        </div>
+                                    </div><!-- /cbp-hrsub-inner -->
+                                </div><!-- /cbp-hrsub -->
+                            </li>
+                            <li>
+                                <a href="#">Downloads</a>
+                                <div class="cbp-hrsub">
+                                    <div class="cbp-hrsub-inner">
+                                        <div>
+                                            <h4>Education &amp; Learning</h4>
+                                            <ul>
+                                                <li><a href="#">Learn Thai</a></li>
+                                                <li><a href="#">Math Genius</a></li>
+                                                <li><a href="#">Chemokid</a></li>
+                                            </ul>
+                                            <h4>Professionals</h4>
+                                            <ul>
+                                                <li><a href="#">Success 1.0</a></li>
+                                                <li><a href="#">Moneymaker</a></li>
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <h4>Entertainment</h4>
+                                            <ul>
+                                                <li><a href="#">Gadget Finder</a></li>
+                                                <li><a href="#">Green Tree Express</a></li>
+                                                <li><a href="#">Green Tree Pro</a></li>
+                                                <li><a href="#">Holy Cannoli</a></li>
+                                                <li><a href="#">Wobbler 3.0</a></li>
+                                                <li><a href="#">Coolkid</a></li>
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <h4>Games</h4>
+                                            <ul>
+                                                <li><a href="#">Catch the Bullet</a></li>
+                                                <li><a href="#">Snoopydoo</a></li>
+                                                <li><a href="#">Fallen Angel</a></li>
+                                                <li><a href="#">Sui Maker</a></li>
+                                                <li><a href="#">Wave Master</a></li>
+                                                <li><a href="#">Golf Pro</a></li>
+                                            </ul>
+                                        </div>
+                                    </div><!-- /cbp-hrsub-inner -->
+                                </div><!-- /cbp-hrsub -->
+                            </li>
+                            <li>
+                                <a href="#">Applications</a>
+                            </li>
+                        </ul>
+                    </nav>
                   </div>
-                  <!-- End Carousel Inner -->
+
+                <div class="columns cart-container">
+                    <div class="cart">
+                        <div class="show-for-medium-up">
+                            <a class="cart-link" href="{% url 'shopping-cart-show' %}">Cart
+                                <span class="number-wrapper hide">(<span class="number">0</span>)</span>
+                                <span aria-hidden="true" class="fa fa-shopping-cart"></span></a>
+                        </div>
+                        <div class="recently-added">
+                          <table width="100%">
+                              <thead>
+                                <tr>
+                                  <td colspan="3">Recently Added</td>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                    <td class="cart-item">
+                                        <a href=""><img src="" alt=""></a>
+                                    </td>
+                                    <td class="cart-detail">
+                                        <h2><a href=""></a></h2>
+                                    </td>
+                                    <td class="cart-price">
+                                        <span class="money" data-currency-cad="$12.95 CAD" data-currency="CAD">
+
+                                        </span>
+                                    </td>
+                                </tr>
+                              </tbody>
+                              <tfoot>
+                                <tr>
+                                    <td class="items-count"><a href="/cart"><span class="number"></span> Items</a></td>
+                                    <td colspan="2" class="text-right all-caps"><strong>Total
+                                        <span class="total-price money" style="margin-left:5px;">
+
+                                        </span></strong>
+                                    </td>
+                                </tr>
+                              </tfoot>
+                            </table>
+                            <div class="row">
+                              <div class="checkout columns">
+                                <a class="button" href="/cart">Go to Checkout</a>
+                              </div><!-- #cart-meta -->
+                            </div>
+                            <div class="error" style="display: none;">
+                              <p>The item you just added is unavailable. Please select another product or variant.</p>
+                            </div>
+                        </div>
+
+
+
+                    </div>
                 </div>
-                <!-- /.carousel -->
-                <li class="divider"></li>
-                <li><a href="#">View all Collection <span class="glyphicon glyphicon-chevron-right pull-right"></span></a></li>
-              </ul>
-            </li>
-            <li class="col-sm-3">
-              <ul>
-                <li class="dropdown-header">Dresses</li>
-                <li><a href="#">Unique Features</a></li>
-                <li><a href="#">Image Responsive</a></li>
-                <li><a href="#">Auto Carousel</a></li>
-                <li><a href="#">Newsletter Form</a></li>
-                <li><a href="#">Four columns</a></li>
-                <li class="divider"></li>
-                <li class="dropdown-header">Tops</li>
-                <li><a href="#">Good Typography</a></li>
-              </ul>
-            </li>
-            <li class="col-sm-3">
-              <ul>
-                <li class="dropdown-header">Jackets</li>
-                <li><a href="#">Easy to customize</a></li>
-                <li><a href="#">Glyphicons</a></li>
-                <li><a href="#">Pull Right Elements</a></li>
-                <li class="divider"></li>
-                <li class="dropdown-header">Pants</li>
-                <li><a href="#">Coloured Headers</a></li>
-                <li><a href="#">Primary Buttons & Default</a></li>
-                <li><a href="#">Calls to action</a></li>
-              </ul>
-            </li>
-            <li class="col-sm-3">
-              <ul>
-                <li class="dropdown-header">Accessories</li>
-                <li><a href="#">Default Navbar</a></li>
-                <li><a href="#">Lovely Fonts</a></li>
-                <li><a href="#">Responsive Dropdown </a></li>
-                <li class="divider"></li>
-                <li class="dropdown-header">Newsletter</li>
-                <form class="form" role="form">
-                  <div class="form-group">
-                    <label class="sr-only" for="email">Email address</label>
-                    <input type="email" class="form-control" id="email" placeholder="Enter email">
-                  </div>
-                  <button type="submit" class="btn btn-primary btn-block">Sign in</button>
-                </form>
-              </ul>
-            </li>
-          </ul>
-
-        </li>
-      </ul>
-
-    </div>
-    <!-- /.nav-collapse -->
-  </nav>
+             </div>
+         </div>
+     </div>
 </header>
 
 
@@ -445,8 +304,12 @@
 	<script src="{% static 'js/jquery-2.1.4.min.js' %}"></script>
     <script src="{% static 'js/owl.carousel.min.js' %}"></script>
     <script src="{% static 'js/image-tooltip.js' %}"></script>
-{#    <script type="text/babel" src="../static/js/all_product.js"></script>#}
     <script src="{% static 'js/externaljs.js' %}"></script>
-
+    <script src="{% static 'js/cbpHorizontalMenu.min.js' %}"></script>
+<script>
+    $(function() {
+				cbpHorizontalMenu.init();
+			});
+</script>
 </body>
 </html>
