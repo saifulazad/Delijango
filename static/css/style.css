@@ -18,7 +18,12 @@ body {
 }
 
 
-
+.page-title {
+    padding-top: 15px;
+}
+.divider {
+    border-top: 1px solid #ebebeb;
+}
 .glyphicon{
     padding-left: 5px;
 }
@@ -1256,4 +1261,45 @@ article .add-to-cart .button {
     right: auto;
     width: 58.33333%;
 }}
+
+/*search page*/
+
+.main-content .row.summary {
+    padding: 10px 20px;
+}
+@media only screen and (min-width: 768px){
+.main-content .row.summary {
+    padding: 25px 40px;
+}}
+
+.main-content .searchbar-container {
+    max-width: 250px;
+}
+
+.main-content .searchbar-container form {
+    position: relative;
+    padding-left: 0;
+}
+.main-content .row.summary input {
+    margin: 0 !important;
+}
+.main-content .searchbar-container .text {
+    padding-right: 27px;
+}
+.main-content .searchbar-container button {
+    font-size: 14px;
+    top: 7px;
+    background: none;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    color: #444444;
+}
+
+.main-content .thumbnail {
+    min-height: 1px;
+    box-shadow: none !important;
+    border: none !important;
+}
 

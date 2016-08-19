@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block content %}
+    <section class="main-content">
+        <div class="row">
+          <div class="large-12 columns">
+            <h1 class="page-title">Search</h1>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="columns">
+            <div class="divider"></div>
+          </div>
+        </div>
+
+        <div class="row summary narrow">
+          <div class="large-4 columns">
+            <p>Search results for <strong>"long"</strong></p>
+          </div>
+
+          <div class="large-4 columns">
+            <div class="searchbar-container">
+              <form action="/search" method="get" role="search">
+                <input name="q" type="text" placeholder="Search store..." class="hint text" value="long">
+                <button aria-hidden="false" class="fa fa-search"></button>
+              </form>
+            </div>
+          </div>
+          <div class="large-4 columns">
+            <p><strong>4</strong> results found</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="columns">
+            <div class="divider results"></div>
+          </div>
+        </div>
+
+        {% for item in products %}
+            <div class="row ">
+
+                <div class="col-md-4">
+                    <div class="thumbnail">
+                      <a href="{% url 'product_detail' item.pk %}"><img src="{{ item.image.url }}" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                  <div class="search-result">
+                    <h3><a href="{% url 'product_detail' item.pk %}" title="">{{ item.productName }}</a></h3>
+                    {{ item.description }}
+                  </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+              <div class="columns">
+                <div class="divider results"></div>
+              </div>
+            </div>
+        {% endfor %}
+
+
+
+
+    </section>
+{% endblock %}
