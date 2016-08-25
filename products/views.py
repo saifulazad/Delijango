@@ -20,3 +20,9 @@ def product_detail(request, product_id):
     return render(request, 'product_details.html', context)
 
 
+def search(request):
+    products = Product.objects.all()
+    context = {
+        'products': products,
+    }
+    return render(request, 'product_search.html', context)
